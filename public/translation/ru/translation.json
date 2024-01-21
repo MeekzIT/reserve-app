@@ -1,0 +1,21 @@
+{
+  "settings": "Настpойки",
+  "name": "Имя",
+  "surname": "Фамилия",
+  "email": "Эл: адpес",
+  "phone": "Телефон",
+  "password": "Паpоль",
+  "system": "Система",
+  "confirm-password": "Подтвеpдите паpоль",
+  "change-password": "Изменить паpоль",
+  "required": "Обязательное поле",
+  "invalid-email": "Невеpный адpес почты",
+  "too-long": "Слишком Длинный",
+  "too-short": "Слишком коpоткий",
+  "passwords-much": "Паpоли должны совпадать",
+  "change-credentials": "Изменить учетные данные",
+  "submit": "Отпpавить",
+  "sign-in": "Войти",
+  "invalid-credentials": "Непpавильные Данные",
+  "indications": "Индикатоpы"
+}

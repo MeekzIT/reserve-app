@@ -1,0 +1,19 @@
+{
+  "password": "Գաղտնաբառ",
+  "name": "Անուն",
+  "surname": "Ազգանուն",
+  "email": "Էլ փոստ",
+  "phone": "Հեռախոս",
+  "confirm-password": "Հաստատել Գաղտնաբառը",
+  "change-password": "Փոխել Գաղտնաբառը",
+  "change-credentials": "Փոխել Կարգավորումները",
+  "required": "Պարտադիր դաշտ",
+  "invalid-email": "Սխալ Էլ. հասցե",
+  "too-long": "Շատ երկար է",
+  "too-short": "Շատ կարճ է",
+  "passwords-much": "Գաղտնաբառերը պետք է համընկնեն",
+  "submit": "Հաստատել",
+  "sign-in": "Մուտք գործել",
+  "invalid-credentials": "Սխալ տվյալներ",
+  "indications": "Ցուցանիշներ"
+}

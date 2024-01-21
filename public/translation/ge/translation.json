@@ -1,0 +1,20 @@
+{
+  "settings": "პარამეტრები",
+  "name": "სახელი",
+  "surname": "გვარი",
+  "email": "ელფოსტა",
+  "phone": "ტელეფონი",
+  "password": "პაროლი",
+  "confirm-password": "დაადასტურე პაროლი",
+  "change-password": "პაროლის შეცვლა",
+  "change-credentials": "შეცვალეთ რწმუნებათა სიგელები",
+  "required": "საჭიროა",
+  "invalid-email": "არასწორი ელფოსტა",
+  "too-long": "ძალიან გრძელი",
+  "too-short": "ძალიან მოკლე",
+  "passwords-much": "პაროლები უნდა ემთხვეოდეს",
+  "submit": "გაგზავნა",
+  "sign-in": "ებრძანდით",
+  "invalid-credentials": "არასწორი მონაცემები",
+  "indications": "ინდიკატორები"
+}

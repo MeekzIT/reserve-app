@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.error-message {
+  font-size: 16px;
+  line-height: 12px;
+  color: maroon;
+}
+
+/* map */
+
+.react-yandex-maps {
+  .ymaps-2-1-78-controls__zoom-in,
+  .ymaps-2-1-78-controls__zoom-out {
+    background-color: #008491 !important; /* Custom color */
+    color: #fff !important; /* Text color */
+  }
+
+  .ymaps-2-1-78-placemark {
+    fill: #008491 !important; /* Placemark fill color */
+    stroke: #fff !important; /* Placemark border color */
+  }
+}
+
+.ymaps-2-1-79-ground-pane {
+  filter: hue-rotate(180deg) !important;
+  -ms-filter: hue-rotate(180deg) !important;
+  -webkit-filter: hue-rotate(180deg) !important;
+  -moz-filter: hue-rotate(180deg) !important;
+  -o-filter: hue-rotate(180deg) !important;
+}

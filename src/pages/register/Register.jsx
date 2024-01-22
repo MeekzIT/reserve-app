@@ -58,7 +58,6 @@ const RegisterPage = () => {
     dispatch(getCountries());
   }, []);
 
-  console.log(countries);
   return (
     <div className="register-box">
       <Container component="main" maxWidth="xs" className="register">
@@ -90,7 +89,6 @@ const RegisterPage = () => {
               }}
               validationSchema={validationSchema}
               onSubmit={(values) => {
-                console.log(values);
                 dispatch(registerAction(values));
               }}
             >

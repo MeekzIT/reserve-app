@@ -14,9 +14,15 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { answersData } from "./answers";
+import { useDispatch } from "react-redux";
+import { sendQuestion } from "../../store/actions/suportAction";
+import { useNavigate } from "react-router-dom";
+import { HOME_PAGE } from "../../routing/pats";
 
 const Suport = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const initialValues = {
     question: "",
   };
@@ -30,7 +36,8 @@ const Suport = () => {
     setExpanded(isExpanded ? panel : false);
   };
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    dispatch(sendQuestion(values, "Спасибо! мы свяжемся с Bами!"));
+    navigate(HOME_PAGE);
   };
 
   return (

@@ -14,5 +14,9 @@
   "too-short": "Too Short",
   "passwords-much": "Passwords must match",
   "submit": "Submit",
-  "owners": "Owners"
+  "sign-in": "Sign In",
+  "sign-up": "Sign Up",
+  "toRegister": "Don’t have an Account?",
+  "toLogin": "Don’t have an Account? Sign up here",
+  "pass-match": "Passwords must match"
 }

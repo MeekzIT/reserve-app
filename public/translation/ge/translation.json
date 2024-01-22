@@ -16,5 +16,9 @@
   "submit": "გაგზავნა",
   "sign-in": "ებრძანდით",
   "invalid-credentials": "არასწორი მონაცემები",
-  "indications": "ინდიკატორები"
+  "indications": "ინდიკატორები",
+  "toRegister": "Don’t have an Account?",
+  "toLogin": "Don’t have an Account? Sign up here",
+  "sign-up": "Sign Up",
+  "pass-match": "Passwords must match"
 }

@@ -47,32 +47,50 @@ export function LanguageSwitcher() {
     dispatch(changeLanguage(e.target.value));
   };
   return (
-    <FormControl fullWidth>
+    <FormControl size="small">
       <Select
         value={activeLang}
         onChange={selectLange}
         displayEmpty
         inputProps={{ "aria-label": "Without label" }}
       >
-        {data?.Country?.short == "AZ"
-          ? [
-              ...languages,
-              {
-                id: 5,
-                langEn: "az",
-              },
-            ]?.map((item) => {
-              return (
-                <MenuItem key={item.id} value={item.langEn}>
-                  {item.langEn.toUpperCase()}
-                </MenuItem>
-              );
-            })
+        {data
+          ? data?.Country?.short == "AZ"
+            ? [
+                ...languages,
+                {
+                  id: 5,
+                  langEn: "az",
+                },
+              ]?.map((item) => {
+                return (
+                  <MenuItem key={item.id} value={item.langEn}>
+                    {item.langEn.toUpperCase()}
+                  </MenuItem>
+                );
+              })
+            : [
+                ...languages,
+                {
+                  id: 3,
+                  langEn: "am",
+                },
+              ]?.map((item) => {
+                return (
+                  <MenuItem key={item.id} value={item.langEn}>
+                    {item.langEn.toUpperCase()}
+                  </MenuItem>
+                );
+              })
           : [
               ...languages,
               {
                 id: 3,
                 langEn: "am",
+              },
+              {
+                id: 5,
+                langEn: "az",
               },
             ]?.map((item) => {
               return (

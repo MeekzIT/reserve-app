@@ -1,27 +1,31 @@
 import { useState } from "react";
 import * as Yup from "yup";
+import Error from "../../components/error/Error";
+import { LanguageSwitcher } from "../../components/languageSwitcher/LanguageSwitcher";
 import { Formik, Form } from "formik";
 import { useDispatch } from "react-redux";
-import Error from "../../components/error/Error";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import { useTranslation } from "react-i18next";
+import {
+  Box,
+  Typography,
+  Container,
+  InputAdornment,
+  IconButton,
+  Grid,
+  Button,
+  TextField,
+} from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { InputAdornment, IconButton, Grid } from "@mui/material";
+import logo from "../../images/JSLogo.svg";
+import { loginAction } from "../../store/actions/auth-action";
 
 import "./login.css";
-import { loginAction } from "../../store/actions/auth-action";
-import { useTranslation } from "react-i18next";
-import { LanguageSwitcher } from "../../components/languageSwitcher/LanguageSwitcher";
+import { useNavigate } from "react-router-dom";
+import { REGISTER_PAGE } from "../../routing/pats";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const validationSchema = Yup.object().shape({
     email: Yup.string().email(t("invalid-email")).required(t("required")),
@@ -36,16 +40,13 @@ const LoginPage = () => {
       <Container component="main" maxWidth="xs" className="login">
         <Box
           sx={{
-            marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
+          <img src={logo} alt="logo" />
+          <Typography component="h1" variant="h5" mb={1}>
             {t("sign-in")}
           </Typography>
           <Grid container>
@@ -112,6 +113,31 @@ const LoginPage = () => {
               )}
             </Formik>
           </Box>
+        </Box>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <div
+            style={{
+              // width: "50%",
+              display: "flex",
+              justifyContent: "flex-start",
+            }}
+          >
+            <Typography
+              sx={{ m: 1, color: "primary.main" }}
+              onClick={() => navigate(REGISTER_PAGE)}
+            >
+              {t("toRegister")}
+            </Typography>
+          </div>
+          {/* <div
+            style={{
+              width: "50%",
+              display: "flex",
+              justifyContent: "flex-start",
+            }}
+          >
+            <Typography>asdas</Typography>
+          </div> */}
         </Box>
       </Container>
     </div>

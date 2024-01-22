@@ -37,3 +37,17 @@ body {
   -moz-filter: hue-rotate(180deg) !important;
   -o-filter: hue-rotate(180deg) !important;
 }
+
+.MuiInputBase-inputAdornedEnd{
+  width: 100% !important;
+}
+
+.MuiMenuItem-root{
+  display: flex !important;
+  gap: 5px !important;
+  /* justify-content: space-between !important; */
+}
+
+.MuiAccordion-gutters{
+  border: 1px solid #008491 !important;
+}

@@ -4,11 +4,13 @@ import thunk from "redux-thunk";
 import { isAuthReducer } from "./reducers/auth-reducer";
 import { languageReducer } from "./reducers/language-reducer";
 import { boxesReducer } from "./reducers/boxes-reducer";
+import { suportReducer } from "./reducers/suport-reducer";
 
 const rootReducer = combineReducers({
   auth: isAuthReducer,
   lang: languageReducer,
   box: boxesReducer,
+  suport: suportReducer,
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));

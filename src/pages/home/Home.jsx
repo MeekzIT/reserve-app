@@ -35,7 +35,6 @@ const HomePage = () => {
           style={{
             width: "100%",
             height: "100vh",
-            background: "red",
           }}
           modules={["geolocation", "geocode"]}
           controls={["smallMapDefaultSet"]}

@@ -28,14 +28,14 @@ export const answersData = [
       " Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis            laoreet laoreet.",
   },
   {
-    expanded: "panel2",
+    expanded: "panel5",
     title: "Users",
     helper: "You are currently not an owner",
     answer:
       " Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis            laoreet laoreet.",
   },
   {
-    expanded: "panel1",
+    expanded: "panel6",
     title: "General settings",
     helper: "I am an accordion",
     answer:

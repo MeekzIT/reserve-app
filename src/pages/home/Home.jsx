@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   YMaps,
@@ -10,20 +10,18 @@ import {
 } from "react-yandex-maps";
 import { getBox, getBoxes } from "../../store/actions/boxAction";
 import useGeolocation from "react-hook-geolocation";
+import BoxOptions from "../../components/boxOptions/BoxOptions";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const geolocation = useGeolocation({
-    enableHighAccuracy: true,
-    maximumAge: 15000,
-    timeout: 12000,
-  });
+  const geolocation = useGeolocation({});
   const defaultPin = [40.18111, 44.51361];
+  const [open, setOpen] = useState(false);
   const data = useSelector((state) => state.box.boxes);
-  const box = useSelector((state) => state.box.box);
   useEffect(() => {
     dispatch(getBoxes());
   }, []);
+  console.log(geolocation, "geolocation");
   return (
     <div>
       <YMaps>
@@ -76,13 +74,14 @@ const HomePage = () => {
                       id,
                     })
                   );
-                  console.log(desc);
+                  setOpen(true);
                 }}
               />
             );
           })}
         </Map>
       </YMaps>
+      <div className="center">{open && <BoxOptions setOpen={setOpen} />}</div>
     </div>
   );
 };

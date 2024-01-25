@@ -1,6 +1,12 @@
 import axios from "axios";
 import { keys } from "../../keys";
-import { GET_BOX, GET_BOXES, GET_BOX_ITEMS, GET_ITEMS_CARS } from "../types";
+import {
+  GET_BOX,
+  GET_BOXES,
+  GET_BOX_ITEMS,
+  GET_ITEMS_CARS,
+  GET_ITEMS_MODES,
+} from "../types";
 
 export const getBoxes = () => {
   return (dispatch) => {
@@ -76,6 +82,27 @@ export const getItemCars = (data) => {
       .then((response) => {
         dispatch({
           type: GET_ITEMS_CARS,
+          payload: response.data.data,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+};
+
+export const getItemModes = (data) => {
+  return (dispatch) => {
+    axios
+      .get(`${keys.api}/item/mode`, {
+        headers: {
+          Authorization: `Bearer ${keys.token}`,
+        },
+        params: data,
+      })
+      .then((response) => {
+        dispatch({
+          type: GET_ITEMS_MODES,
           payload: response.data.data,
         });
       })

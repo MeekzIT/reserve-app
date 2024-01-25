@@ -1,10 +1,17 @@
-import { GET_BOX, GET_BOXES, GET_BOX_ITEMS, GET_ITEMS_CARS } from "../types";
+import {
+  GET_BOX,
+  GET_BOXES,
+  GET_BOX_ITEMS,
+  GET_ITEMS_CARS,
+  GET_ITEMS_MODES,
+} from "../types";
 
 const initialState = {
   boxes: null,
   box: null,
   items: null,
   itemCars: null,
+  itemModes: null,
 };
 
 export const boxesReducer = (state = initialState, action) => {
@@ -22,6 +29,11 @@ export const boxesReducer = (state = initialState, action) => {
       return {
         ...state,
         itemCars: action.payload,
+      };
+    case GET_ITEMS_MODES:
+      return {
+        ...state,
+        itemModes: action.payload,
       };
     default:
       return state;

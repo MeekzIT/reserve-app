@@ -9,12 +9,13 @@ import {
   FormControl,
   FormLabel,
   ButtonGroup,
+  Checkbox,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
 import "../../boxOptions.css";
-import { getItemCars } from "../../../../store/actions/boxAction";
+import { getItemCars, getItemModes } from "../../../../store/actions/boxAction";
 const ChooseBox = ({
   setStep,
   box,
@@ -27,8 +28,10 @@ const ChooseBox = ({
   const dispatch = useDispatch();
   const items = useSelector((state) => state.box.items);
   const itemCars = useSelector((state) => state.box.itemCars);
+  const itemModes = useSelector((state) => state.box.itemModes);
   const [boxValue, setBoxValue] = useState(box);
   const [priceValue, setPriceValue] = useState(price);
+  const [priceValueCar, setPriceValueCar] = useState(price);
   const [workerValue, setWorkerValue] = useState(worker);
 
   const handleChange = (event) => {
@@ -53,14 +56,20 @@ const ChooseBox = ({
   }
 
   useEffect(() => {
-    boxValue &&
+    if (boxValue) {
       dispatch(
         getItemCars({
           id: boxValue,
         })
       );
+      dispatch(
+        getItemModes({
+          id: boxValue,
+        })
+      );
+    }
   }, [boxValue]);
-  console.log(itemCars, "workerValue");
+  console.log(itemModes, "workerValue");
 
   return (
     <div>
@@ -89,30 +98,62 @@ const ChooseBox = ({
           })}
         </RadioGroup>
       </FormControl>
-      {workerValue == "true" && boxValue && (
-        <FormControl>
-          <FormLabel>Choose car type</FormLabel>
-          <RadioGroup
-            row
-            value={priceValue}
-            onChange={(e) => {
-              setPrice(e.target.value);
-              setPriceValue(e.target.value);
-            }}
-          >
-            {itemCars?.map((i) => {
+      <Box>
+        {workerValue == "true" && boxValue && (
+          <FormControl>
+            <FormLabel>Choose car type</FormLabel>
+            <RadioGroup
+              row
+              value={priceValueCar}
+              onChange={(e) => {
+                setPrice((price) => price + Number(e.target.value));
+                setPriceValue((price) => price + Number(e.target.value));
+                setPriceValueCar((price) => Number(e.target.value));
+              }}
+            >
+              {itemCars?.map((i) => {
+                return (
+                  <FormControlLabel
+                    key={i.id}
+                    value={i.price}
+                    control={<Radio />}
+                    label={i.Type.nameAm}
+                  />
+                );
+              })}
+            </RadioGroup>
+          </FormControl>
+        )}
+      </Box>
+      <Box>
+        {workerValue == "true" && boxValue && (
+          <FormControl>
+            <FormLabel>Choose wash modes</FormLabel>
+
+            {itemModes?.map((i) => {
               return (
                 <FormControlLabel
-                  key={i.id}
-                  value={i.price}
-                  control={<Radio />}
-                  label={i.Type.nameAm}
+                  required
+                  control={
+                    <Checkbox
+                      onChange={(e) => {
+                        console.log(e.target.checked, i.price, "i.price");
+                        e.target.checked
+                          ? setPrice((price) => price + Number(i.price))
+                          : setPrice((price) => price - Number(i.price));
+                        e.target.checked
+                          ? setPriceValue((price) => price + Number(i.price))
+                          : setPriceValue((price) => price - Number(i.price));
+                      }}
+                    />
+                  }
+                  label={i.Category.nameAm}
                 />
               );
             })}
-          </RadioGroup>
-        </FormControl>
-      )}
+          </FormControl>
+        )}
+      </Box>
       <Box>
         <ButtonGroup fullWidth>
           <Button

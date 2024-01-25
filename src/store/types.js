@@ -8,3 +8,4 @@ export const GET_BOX = "GET_BOX";
 export const GET_ANSWERS = "GET_ANSWERS";
 export const GET_BOX_ITEMS = "GET_BOX_ITEMS";
 export const GET_ITEMS_CARS = "GET_ITEMS_CARS";
+export const GET_ITEMS_MODES = "GET_ITEMS_MODES";

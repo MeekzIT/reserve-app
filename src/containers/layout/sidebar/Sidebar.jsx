@@ -32,7 +32,6 @@ const Sidebar = ({ state, setState }) => {
     dispatch(getMe());
   }, []);
 
-  console.log(user);
   return (
     <Drawer anchor={"left"} open={state} onClose={() => setState(false)}>
       <Box

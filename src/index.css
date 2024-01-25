@@ -57,3 +57,15 @@ body {
 .MuiAccordion-gutters{
   border: 1px solid #008491 !important;
 }
+
+.css-hmc9b7-MuiTabs-indicator{
+  background-color: white !important; 
+}
+
+.css-1cb6ucr-MuiButtonBase-root-MuiTab-root.Mui-disabled{
+  color: white !important;
+}
+
+.css-heg063-MuiTabs-flexContainer{
+  justify-content: space-around !important;
+}

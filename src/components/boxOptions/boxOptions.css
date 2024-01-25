@@ -12,13 +12,19 @@
 
 .close{
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 2px;
+  right: 5px;
+}
+
+.back{
+  position: absolute;
+  top: 2px;
+  left: 5px;
 }
 
 .header{
   height:  20%;
-  padding: 5px 0;
+  padding: 15px 0 5px 0;
   background: #008491;
   border-radius: 10px 10px 0 0;
 }

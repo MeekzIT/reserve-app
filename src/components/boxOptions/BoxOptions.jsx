@@ -17,7 +17,6 @@ const BoxOptions = ({ setOpen }) => {
   const [box, setBox] = useState();
   const [price, setPrice] = useState(0);
   const [worker, setWorker] = useState(false);
-  const [carType, setCarType] = useState();
 
   const currentBox = useSelector((state) => state.box.box);
   const stepComponent = useMemo(() => {
@@ -80,7 +79,7 @@ const BoxOptions = ({ setOpen }) => {
         <div className="back">
           <ArrowBackIcon
             fontSize="small"
-            sx={{ color: "secondary.main" }}
+            sx={{ color: "primary.main" }}
             onClick={() => setStep(step - 1)}
           />
         </div>
@@ -88,7 +87,7 @@ const BoxOptions = ({ setOpen }) => {
       <div className="close">
         <ClearIcon
           fontSize="small"
-          sx={{ color: step == 1 ? "primary.main" : "secondary.main" }}
+          sx={{ color: "primary.main" }}
           onClick={() => {
             setOpen(false);
             setStep(1);

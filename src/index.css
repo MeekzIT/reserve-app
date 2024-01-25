@@ -15,7 +15,7 @@ body {
   color: maroon;
 }
 
-.center{
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,28 +44,36 @@ body {
   -o-filter: hue-rotate(180deg) !important;
 }
 
-.MuiInputBase-inputAdornedEnd{
+.MuiInputBase-inputAdornedEnd {
   width: 100% !important;
 }
 
-.MuiMenuItem-root{
+.MuiMenuItem-root {
   display: flex !important;
   gap: 5px !important;
   /* justify-content: space-between !important; */
 }
 
-.MuiAccordion-gutters{
+.MuiAccordion-gutters {
   border: 1px solid #008491 !important;
 }
 
-.css-hmc9b7-MuiTabs-indicator{
-  background-color: white !important; 
+.css-hmc9b7-MuiTabs-indicator {
+  background-color: white !important;
 }
 
-.css-1cb6ucr-MuiButtonBase-root-MuiTab-root.Mui-disabled{
+.css-1cb6ucr-MuiButtonBase-root-MuiTab-root.Mui-disabled {
   color: white !important;
 }
 
-.css-heg063-MuiTabs-flexContainer{
+.css-heg063-MuiTabs-flexContainer {
   justify-content: space-around !important;
+}
+
+.css-10b8fwu-MuiButtonBase-root-MuiCheckbox-root.Mui-disabled {
+  color: #008491 !important;
+}
+.css-ahj2mt-MuiTypography-root,
+.Mui-disabled {
+  color: #008491 !important;
 }

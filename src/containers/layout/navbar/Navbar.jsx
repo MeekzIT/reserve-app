@@ -37,14 +37,16 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <Button variant="outlined" onClick={() => setOpenMenu(true)}>
-        <MenuIcon
-          sx={{
-            color: "white",
-          }}
-          fontSize="large"
-        />
-      </Button>
+      {isAuth && (
+        <Button variant="outlined" onClick={() => setOpenMenu(true)}>
+          <MenuIcon
+            sx={{
+              color: "white",
+            }}
+            fontSize="large"
+          />
+        </Button>
+      )}
       <Typography component="h2" onClick={() => navigate(HOME_PAGE)}>
         JS INNOVATIONS
       </Typography>

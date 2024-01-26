@@ -17,7 +17,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 
 import "../boxOptions.css";
 import { getItemCars, getItemModes } from "../../../store/actions/boxAction";
-import { getWord, useWord } from "../../../hooks/useWord";
+import { getWord } from "../../../hooks/useWord";
 const ChooseBox = ({
   setStep,
   box,
@@ -42,8 +42,6 @@ const ChooseBox = ({
   };
 
   const handleChangeWorker = (event) => {
-    console.log(event, "event.target.value");
-
     setWorker(event.target.value);
     setWorkerValue(event.target.value);
     setPrice(0);
@@ -71,8 +69,6 @@ const ChooseBox = ({
       );
     }
   }, [boxValue]);
-  console.log(itemModes, "workerValue");
-
   return (
     <div>
       <Box>
@@ -122,12 +118,13 @@ const ChooseBox = ({
               }}
             >
               {itemCars?.map((i) => {
+                console.log(i?.Type);
                 return (
                   <FormControlLabel
-                    key={i.id}
-                    value={i.price}
+                    key={i?.id}
+                    value={i?.price}
                     control={<Radio />}
-                    label={getWord(i.Type)}
+                    label={getWord(i?.Type)}
                   />
                 );
               })}
@@ -160,7 +157,7 @@ const ChooseBox = ({
                         }}
                       />
                     }
-                    label={i.Category.nameAm}
+                    label={getWord(i?.Category)}
                   />
                 );
               })}

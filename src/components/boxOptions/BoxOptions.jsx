@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Typography, LinearProgress } from "@mui/material";
+import { LinearProgress } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
-import BoxPresent from "./components/Present";
-import PaymentStep from "./components/PaymentStep";
-import ChooseMethod from "./components/ChooseMethod";
+import BoxPresent from "./steps/Present";
+import PaymentStep from "./steps/PaymentStep";
+import ChooseMethod from "./steps/ChooseMethod";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import "./boxOptions.css";
@@ -13,10 +13,12 @@ import { getBoxItems } from "../../store/actions/boxAction";
 const BoxOptions = ({ setOpen }) => {
   const dispatch = useDispatch();
   const [step, setStep] = useState(1);
-  const [variant, setVariant] = useState("now");
   const [box, setBox] = useState();
   const [price, setPrice] = useState(0);
   const [worker, setWorker] = useState(false);
+  const [modes, setModes] = useState([]);
+  const [time, setTime] = useState();
+  const [post, setPost] = useState();
 
   const currentBox = useSelector((state) => state.box.box);
   const stepComponent = useMemo(() => {
@@ -27,28 +29,26 @@ const BoxOptions = ({ setOpen }) => {
         return (
           <ChooseMethod
             setStep={setStep}
-            setVariant={setVariant}
-            tab={variant == "now" ? 0 : 1}
-            box={box}
-            setBox={setBox}
             setPrice={setPrice}
+            modes={modes}
+            setModes={setModes}
             price={price}
             worker={worker}
             setWorker={setWorker}
+            box={box}
+            setBox={setBox}
+            time={time}
+            setTime={setTime}
+            post={post}
+            setPost={setPost}
           />
         );
       case 3:
-        return (
-          <PaymentStep
-            setStep={setStep}
-            setVariant={setVariant}
-            tab={variant == "now" ? 0 : 1}
-          />
-        );
+        return <PaymentStep setStep={setStep} />;
       default:
         return <BoxPresent setStep={setStep} />;
     }
-  }, [step, variant, box, price, worker]);
+  }, [step, modes, price, worker]);
   const progress = useMemo(() => {
     switch (step) {
       case 1:
@@ -69,10 +69,7 @@ const BoxOptions = ({ setOpen }) => {
           boxId: currentBox.id,
         })
       );
-  }, [currentBox]);
-
-  console.log(box, price, worker, "111111");
-
+  }, [currentBox, dispatch]);
   return (
     <div className="boxOptions">
       {step !== 1 && (
@@ -91,7 +88,6 @@ const BoxOptions = ({ setOpen }) => {
           onClick={() => {
             setOpen(false);
             setStep(1);
-            setVariant("now");
           }}
         />
       </div>

@@ -3,9 +3,9 @@ import { keys } from "../../keys";
 import {
   GET_BOX,
   GET_BOXES,
+  GET_BOX_CARS,
   GET_BOX_ITEMS,
-  GET_ITEMS_CARS,
-  GET_ITEMS_MODES,
+  GET_BOX_MODES,
 } from "../types";
 
 export const getBoxes = () => {
@@ -70,10 +70,11 @@ export const getBoxItems = (data) => {
   };
 };
 
-export const getItemCars = (data) => {
+
+export const getBoxModes = (data) => {
   return (dispatch) => {
     axios
-      .get(`${keys.api}/item/type`, {
+      .get(`${keys.api}/item/box-mode`, {
         headers: {
           Authorization: `Bearer ${keys.token}`,
         },
@@ -81,7 +82,7 @@ export const getItemCars = (data) => {
       })
       .then((response) => {
         dispatch({
-          type: GET_ITEMS_CARS,
+          type: GET_BOX_MODES,
           payload: response.data.data,
         });
       })
@@ -91,10 +92,10 @@ export const getItemCars = (data) => {
   };
 };
 
-export const getItemModes = (data) => {
+export const getBoxCars = (data) => {
   return (dispatch) => {
     axios
-      .get(`${keys.api}/item/mode`, {
+      .get(`${keys.api}/item/box-type`, {
         headers: {
           Authorization: `Bearer ${keys.token}`,
         },
@@ -102,7 +103,7 @@ export const getItemModes = (data) => {
       })
       .then((response) => {
         dispatch({
-          type: GET_ITEMS_MODES,
+          type: GET_BOX_CARS,
           payload: response.data.data,
         });
       })

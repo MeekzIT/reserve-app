@@ -1,36 +1,43 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
-import { Box, Typography, Button, Tabs, Tab } from "@mui/material";
-import { useSelector } from "react-redux";
+import { Box, Button } from "@mui/material";
 import "../boxOptions.css";
-import ChooseBox from "./ChooseBox";
+import ChooseBox from "../stepComponents/ChooseBox";
 
 const ChooseMethod = ({
   setStep,
-  setVariant,
-  tab,
-  box,
-  setBox,
   setPrice,
+  setModes,
+  modes,
   price,
   setWorker,
   worker,
+  box,
+  setBox,
+  time,
+  setTime,
+  post,
+  setPost,
 }) => {
   return (
     <div className="body">
       <ChooseBox
-        box={box}
-        setBox={setBox}
         setPrice={setPrice}
+        setModes={setModes}
+        modes={modes}
         price={price}
         worker={worker}
         setWorker={setWorker}
+        box={box}
+        setBox={setBox}
+        time={time}
+        setTime={setTime}
+        post={post}
+        setPost={setPost}
       />
 
       <Box pt={2}>
         <Button
           fullWidth
-          disabled={price == 0 || box == null}
+          disabled={price == 0}
           variant="contained"
           onClick={() => setStep(3)}
         >

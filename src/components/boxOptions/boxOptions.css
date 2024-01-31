@@ -4,7 +4,7 @@
   padding-bottom: 8px;
   position: absolute;
   bottom: 1%;
-  z-index: 9999;
+  z-index: 1;
   background: white;
   border: 1px solid #008491;
   border-radius: 10px;
@@ -31,11 +31,12 @@
 
 .present-images {
   width: 100%;
+  margin-top: 10px;
   padding: 10px 0;
 }
 
 .present-image {
-  width: 95%;
+  width: 100%;
   border-radius: 10px;
 }
 

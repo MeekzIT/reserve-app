@@ -5,12 +5,14 @@ import { isAuthReducer } from "./reducers/auth-reducer";
 import { languageReducer } from "./reducers/language-reducer";
 import { boxesReducer } from "./reducers/boxes-reducer";
 import { suportReducer } from "./reducers/suport-reducer";
+import { workerReducer } from "./reducers/worker-reducer";
 
 const rootReducer = combineReducers({
   auth: isAuthReducer,
   lang: languageReducer,
   box: boxesReducer,
   suport: suportReducer,
+  worker:workerReducer
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));

@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Box, CircularProgress } from "@mui/material";
 import {
   YMaps,
   Map,
@@ -8,9 +9,15 @@ import {
   Placemark,
   RouteButton,
 } from "react-yandex-maps";
-import { getBox, getBoxes } from "../../store/actions/boxAction";
+import {
+  getBox,
+  getBoxCars,
+  getBoxModes,
+  getBoxes,
+} from "../../store/actions/boxAction";
 import useGeolocation from "react-hook-geolocation";
 import BoxOptions from "../../components/boxOptions/BoxOptions";
+import { getBoxWorker, getWorkerHours } from "../../store/actions/workerAction";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -18,17 +25,42 @@ const HomePage = () => {
   const defaultPin = [40.18111, 44.51361];
   const [open, setOpen] = useState(false);
   const data = useSelector((state) => state.box.boxes);
-  useEffect(() => {
-    dispatch(getBoxes());
-  }, []);
-  console.log(geolocation, "geolocation");
-  return (
-    <div>
-      <YMaps>
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleSelectPoint = (ownerId, id) => {
+    dispatch(
+      getBox({
+        id,
+      })
+    );
+    dispatch(
+      getBoxModes({
+        ownerId,
+        boxId: id,
+      })
+    );
+    dispatch(
+      getBoxCars({
+        ownerId,
+        boxId: id,
+      })
+    );
+    dispatch(
+      getBoxWorker({
+        id,
+      })
+    );
+    dispatch(getWorkerHours({ id }));
+    setOpen(true);
+  };
+
+  const map = useCallback(() => {
+    return (
+      <YMaps query={{ lang: "en_RU" }}>
         <Map
           defaultState={{
             center: [geolocation.latitude, geolocation.longitude] || defaultPin,
-            zoom: 12,
+            zoom: open ? 15 : 12,
           }}
           style={{
             width: "100%",
@@ -53,7 +85,7 @@ const HomePage = () => {
               iconContent: "ME",
             }}
           />
-          {data?.map(({ id, lat, lng, name, desc }) => {
+          {data?.map(({ id, lat, lng, name, desc, ownerId }) => {
             return (
               <Placemark
                 key={id}
@@ -68,19 +100,43 @@ const HomePage = () => {
                   balloonContent: name,
                   hintContent: name,
                 }}
-                onClick={() => {
-                  dispatch(
-                    getBox({
-                      id,
-                    })
-                  );
-                  setOpen(true);
-                }}
+                onClick={() => handleSelectPoint(ownerId, id)}
               />
             );
           })}
         </Map>
       </YMaps>
+    );
+  }, [
+    data,
+    defaultPin,
+    geolocation.latitude,
+    geolocation.longitude,
+    handleSelectPoint,
+    open,
+  ]);
+
+  useEffect(() => {
+    dispatch(getBoxes());
+  }, [dispatch]);
+
+  return (
+    <div>
+      {!geolocation.latitude && !geolocation.longitude ? (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "90vh",
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      ) : (
+        map()
+      )}
+
       <div className="center">{open && <BoxOptions setOpen={setOpen} />}</div>
     </div>
   );

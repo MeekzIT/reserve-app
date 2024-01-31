@@ -1,17 +1,17 @@
 import {
   GET_BOX,
   GET_BOXES,
+  GET_BOX_CARS,
   GET_BOX_ITEMS,
-  GET_ITEMS_CARS,
-  GET_ITEMS_MODES,
+  GET_BOX_MODES,
 } from "../types";
 
 const initialState = {
   boxes: null,
   box: null,
   items: null,
-  itemCars: null,
-  itemModes: null,
+  boxCars: null,
+  boxModes: null,
 };
 
 export const boxesReducer = (state = initialState, action) => {
@@ -25,15 +25,15 @@ export const boxesReducer = (state = initialState, action) => {
         ...state,
         items: action.payload,
       };
-    case GET_ITEMS_CARS:
+    case GET_BOX_CARS:
       return {
         ...state,
-        itemCars: action.payload,
+        boxCars: action.payload,
       };
-    case GET_ITEMS_MODES:
+    case GET_BOX_MODES:
       return {
         ...state,
-        itemModes: action.payload,
+        boxModes: action.payload,
       };
     default:
       return state;

@@ -32,8 +32,6 @@ const ChooseBox = ({
   price,
   setWorker,
   worker,
-  box,
-  setBox,
   time,
   setTime,
   post,
@@ -52,7 +50,6 @@ const ChooseBox = ({
   const [priceValueCar, setPriceValueCar] = useState(price);
   const [workerValue, setWorkerValue] = useState(worker);
   const [timeValue, setTimeValue] = useState();
-  const [boxValue, setBoxValue] = useState(box);
   const [postValue, setPostValue] = useState(post);
 
   const handleChange = (event) => {

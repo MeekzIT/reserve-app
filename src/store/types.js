@@ -11,3 +11,4 @@ export const GET_BOX_CARS = "GET_BOX_CARS";
 export const GET_BOX_MODES = "GET_BOX_MODES";
 export const GET_WORKER = "GET_WORKER";
 export const GET_WORKER_HOUR = "GET_WORKER_HOUR";
+export const SET_ORDER = "SET_ORDER";

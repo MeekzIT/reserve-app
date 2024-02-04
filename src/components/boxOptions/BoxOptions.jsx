@@ -13,7 +13,6 @@ import { getBoxItems } from "../../store/actions/boxAction";
 const BoxOptions = ({ setOpen }) => {
   const dispatch = useDispatch();
   const [step, setStep] = useState(1);
-  const [box, setBox] = useState();
   const [price, setPrice] = useState(0);
   const [worker, setWorker] = useState(false);
   const [modes, setModes] = useState([]);
@@ -35,8 +34,6 @@ const BoxOptions = ({ setOpen }) => {
             price={price}
             worker={worker}
             setWorker={setWorker}
-            box={box}
-            setBox={setBox}
             time={time}
             setTime={setTime}
             post={post}
@@ -44,7 +41,17 @@ const BoxOptions = ({ setOpen }) => {
           />
         );
       case 3:
-        return <PaymentStep setStep={setStep} />;
+        return (
+          <PaymentStep
+            setOpen={setOpen}
+            setStep={setStep}
+            modes={modes}
+            price={price}
+            worker={worker}
+            time={time}
+            post={post}
+          />
+        );
       default:
         return <BoxPresent setStep={setStep} />;
     }

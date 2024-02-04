@@ -10,8 +10,6 @@ const ChooseMethod = ({
   price,
   setWorker,
   worker,
-  box,
-  setBox,
   time,
   setTime,
   post,
@@ -26,8 +24,6 @@ const ChooseMethod = ({
         price={price}
         worker={worker}
         setWorker={setWorker}
-        box={box}
-        setBox={setBox}
         time={time}
         setTime={setTime}
         post={post}

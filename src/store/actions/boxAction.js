@@ -6,6 +6,7 @@ import {
   GET_BOX_CARS,
   GET_BOX_ITEMS,
   GET_BOX_MODES,
+  SET_ORDER,
 } from "../types";
 
 export const getBoxes = () => {
@@ -70,7 +71,6 @@ export const getBoxItems = (data) => {
   };
 };
 
-
 export const getBoxModes = (data) => {
   return (dispatch) => {
     axios
@@ -108,6 +108,28 @@ export const getBoxCars = (data) => {
         });
       })
       .catch((error) => {
+        console.error(error);
+      });
+  };
+};
+
+export const setOrder = (data) => {
+  return (dispatch) => {
+    axios
+      .post(`${keys.api}/order`, data, {
+        headers: {
+          Authorization: `Bearer ${keys.token}`,
+        },
+      })
+      .then(function (response) {
+        if (response.data.succes) {
+          dispatch({
+            type: SET_ORDER,
+            payload: response.data.succes,
+          });
+        }
+      })
+      .catch(function (error) {
         console.error(error);
       });
   };

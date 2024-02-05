@@ -31,3 +31,112 @@ export const getCurrency = (roll) => {
     return "₼";
   } else return null;
 };
+
+export const getPaymentStatus = (payment) => {
+  if (payment == "start") {
+    return "start";
+  } else if (payment == "succes") {
+    return "succes";
+  } else if (payment == "faild") {
+    return "faild";
+  } else if (payment == "in_progres") {
+    return "in_progres";
+  } else if (payment == "finish") {
+    return "finish";
+  } else if (payment == "canacel") {
+    return "canacel";
+  } else return null;
+};
+
+export function formatDateToWords(inputDate) {
+  let language = localStorage.getItem("language");
+  const monthNames = {
+    en: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
+    am: [
+      "Հունվար",
+      "Փետրվար",
+      "Մարտ",
+      "Ապրիլ",
+      "Մայիս",
+      "Հունիս",
+      "Հուլիս",
+      "Օգոստոս",
+      "Սեպտեմբեր",
+      "Հոկտեմբեր",
+      "Նոյեմբեր",
+      "Դեկտեմբեր",
+    ],
+    ru: [
+      "Январь",
+      "Февраль",
+      "Март",
+      "Апрель",
+      "Май",
+      "Июнь",
+      "Июль",
+      "Август",
+      "Сентябрь",
+      "Октябрь",
+      "Ноябрь",
+      "Декабрь",
+    ],
+    ge: [
+      "იანვარი",
+      "თებერვალი",
+      "მარტი",
+      "აპრილი",
+      "მაისი",
+      "ივნისი",
+      "ივლისი",
+      "აგვისტო",
+      "სექტემბერი",
+      "ოქტომბერი",
+      "ნოემბერი",
+      "დეკემბერი",
+    ],
+    az: [
+      "Yanvar",
+      "Fevral",
+      "Mart",
+      "Aprel",
+      "May",
+      "Iyun",
+      "Iyul",
+      "Avqust",
+      "Sentyabr",
+      "Oktyabr",
+      "Noyabr",
+      "Dekabr",
+    ],
+  };
+
+  const [year, month, day] = inputDate.split("-").map(Number);
+
+  const monthWord = monthNames[language][month - 1];
+
+  switch (language) {
+    case "am":
+      return `${day} ${monthWord} ${year} թ.`;
+    case "ru":
+      return `${day} ${monthWord} ${year} г.`;
+    case "ge":
+      return `${year} წლის ${day} ${monthWord}`;
+    case "az":
+      return `${day} ${monthWord} ${year} il`;
+    default:
+      return `${monthWord} ${day}, ${year}`;
+  }
+}

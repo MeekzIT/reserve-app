@@ -12,6 +12,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LanguageIcon from "@mui/icons-material/Language";
 import MenuIcon from "@mui/icons-material/Menu";
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import "./navbar.css";
 
 const Navbar = () => {

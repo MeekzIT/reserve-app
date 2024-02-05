@@ -99,9 +99,9 @@ const BoxOptions = ({ setOpen }) => {
         />
       </div>
       {stepComponent}
-      <dic style={{ width: "100%" }}>
+      <div style={{ width: "100%" }}>
         <LinearProgress variant="determinate" value={progress} />
-      </dic>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { keys } from "../../keys";
 import {
+  CHANGE_PAYMENT_STATUS,
   GET_BOX,
   GET_BOXES,
   GET_BOX_CARS,
@@ -132,5 +133,14 @@ export const setOrder = (data) => {
       .catch(function (error) {
         console.error(error);
       });
+  };
+};
+
+export const changePaymentStatus = (data) => {
+  return (dispatch) => {
+    dispatch({
+      type: CHANGE_PAYMENT_STATUS,
+      payload: data,
+    });
   };
 };

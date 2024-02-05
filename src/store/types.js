@@ -12,3 +12,6 @@ export const GET_BOX_MODES = "GET_BOX_MODES";
 export const GET_WORKER = "GET_WORKER";
 export const GET_WORKER_HOUR = "GET_WORKER_HOUR";
 export const SET_ORDER = "SET_ORDER";
+export const CHANGE_PAYMENT_STATUS = "CHANGE_PAYMENT_STATUS";
+export const GET_HISTORY = "GET_HISTORY";
+export const GET_SINGLE_HISTORY = "GET_SINGLE_HISTORY";

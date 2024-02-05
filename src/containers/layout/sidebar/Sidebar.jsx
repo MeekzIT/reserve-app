@@ -20,7 +20,7 @@ import PaymentIcon from "@mui/icons-material/Payment";
 import HistoryIcon from "@mui/icons-material/History";
 import InfoIcon from "@mui/icons-material/Info";
 import HelpIcon from "@mui/icons-material/Help";
-import { SUPORT_PAGE } from "../../../routing/pats";
+import { HISTORY_PAGE, SUPORT_PAGE } from "../../../routing/pats";
 
 const Sidebar = ({ state, setState }) => {
   const dispatch = useDispatch();
@@ -66,7 +66,7 @@ const Sidebar = ({ state, setState }) => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate(HISTORY_PAGE)}>
               <ListItemIcon>
                 <HistoryIcon sx={{ color: "primary.main" }} />
               </ListItemIcon>

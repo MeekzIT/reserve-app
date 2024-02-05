@@ -18,9 +18,6 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import dayjs from "dayjs";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { MobileTimePicker } from "@mui/x-date-pickers/MobileTimePicker";
 
 import "../boxOptions.css";
 import {} from "../../../store/actions/boxAction";
@@ -69,7 +66,6 @@ const ChooseBox = ({
     setPriceValue(0);
   };
 
-  console.log(formattedTime, "formattedTime");
 
   const modeValues = useCallback(() => {
     boxModes?.map((item) =>

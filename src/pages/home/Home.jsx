@@ -12,6 +12,7 @@ import {
 import {
   getBox,
   getBoxCars,
+  getBoxImages,
   getBoxModes,
   getBoxes,
 } from "../../store/actions/boxAction";
@@ -31,6 +32,11 @@ const HomePage = () => {
     dispatch(
       getBox({
         id,
+      })
+    );
+    dispatch(
+      getBoxImages({
+        boxId: id,
       })
     );
     dispatch(

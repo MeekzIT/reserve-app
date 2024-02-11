@@ -4,3 +4,4 @@ export const REGISTER_PAGE = "/sign-up";
 export const SETTIGS_PAGE = "/settings";
 export const SUPORT_PAGE = "/suport";
 export const HISTORY_PAGE = "/history";
+export const ORDER_PAGE = "/order";

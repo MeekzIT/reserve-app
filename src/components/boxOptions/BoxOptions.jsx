@@ -20,6 +20,7 @@ const BoxOptions = ({ setOpen }) => {
   const [post, setPost] = useState();
 
   const currentBox = useSelector((state) => state.box.box);
+  console.log(modes, "lll");
   const stepComponent = useMemo(() => {
     switch (step) {
       case 1:

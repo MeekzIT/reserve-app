@@ -66,7 +66,6 @@ const ChooseBox = ({
     setPriceValue(0);
   };
 
-
   const modeValues = useCallback(() => {
     boxModes?.map((item) =>
       item.price == 0
@@ -98,7 +97,7 @@ const ChooseBox = ({
               label={null}
               onChange={handleChange}
             >
-              <MenuItem value={"now"}>Now</MenuItem>
+              {/* <MenuItem value={"now"}>Now</MenuItem> */}
               {hours?.map((time) => {
                 return (
                   <MenuItem value={time.start} disabled={!time.access}>

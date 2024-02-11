@@ -7,6 +7,7 @@ import "../boxOptions.css";
 
 const BoxPresent = ({ setStep }) => {
   const box = useSelector((state) => state.box.box);
+  const images = useSelector((state) => state.box.boxImages);
   const settings = {
     dots: true,
     lazyLoad: true,
@@ -17,28 +18,18 @@ const BoxPresent = ({ setStep }) => {
     initialSlide: 2,
     arrows: false,
   };
+
   return (
     <Box>
       <div className="present-images">
         <Slider {...settings}>
-          <div>
-            <img src={carWash1} alt="carWash" className="present-image" />
-          </div>
-          <div>
-            <img src={carWash1} alt="carWash" className="present-image" />
-          </div>
-          <div>
-            <img src={carWash1} alt="carWash" className="present-image" />
-          </div>
-          <div>
-            <img src={carWash1} alt="carWash" className="present-image" />
-          </div>
-          <div>
-            <img src={carWash1} alt="carWash" className="present-image" />
-          </div>
-          <div>
-            <img src={carWash1} alt="carWash" className="present-image" />
-          </div>
+          {images?.map((i) => {
+            return (
+              <div key={i?.id}>
+                <img src={i?.image} alt={i?.id} className="present-image" />
+              </div>
+            );
+          })}
         </Slider>
       </div>
       <div className="body">

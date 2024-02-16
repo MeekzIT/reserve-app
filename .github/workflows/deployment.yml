@@ -8,9 +8,9 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: get repo code 
+      - name: Get repo code 
         uses: actions/checkout@v3
-      - name: check deps
+      - F: Check deps
         uses: actions/cache@v3
         with: 
           path: ~/.npm 
@@ -23,10 +23,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: lint
+    strategy:
+      matrix:
+        node-version: [14, 16]
+        os-version: [ubuntu-latest, windows-latest]
     steps:
-      - name: get repo code 
+      - name: Get repo code 
         uses: actions/checkout@v3
-      - name: check deps
+      - name: Install Node Js
+        uses: actions/setup-node@v3
+         with: 
+          node-version: ${{ matrix.node-version }} 
+      - name: Check deps
         uses: actions/cache@v3
         with: 
           path: ~/.npm 

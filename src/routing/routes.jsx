@@ -1,4 +1,4 @@
-import HomePage from "../pages/home/Home";
+import React from "react";
 import {
   HISTORY_PAGE,
   HOME_PAGE,
@@ -8,6 +8,7 @@ import {
   SETTIGS_PAGE,
   SUPORT_PAGE,
 } from "./pats";
+import HomePage from "../pages/home/Home";
 import LoginPage from "../pages/login/Login";
 import Settings from "../pages/settings/Settings";
 import RegisterPage from "../pages/register/Register";

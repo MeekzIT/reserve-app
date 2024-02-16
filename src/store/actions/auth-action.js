@@ -10,19 +10,20 @@ export const loginAction = (data) => {
       .post(`${keys.api}/users/sign-in`, data)
       .then(function (response) {
         if (response.data.succes) {
-          dispatch({
-            type: LOGIN_ACTION,
-            payload: {
-              isAuth: true,
-              data: response.data.data,
-              isSuper: response.data.data.role,
-            },
-          });
-          localStorage.setItem("isAuth", JSON.stringify(true));
           localStorage.setItem(
             "token",
             JSON.stringify(response.data.data.token)
           );
+          localStorage.setItem("isAuth", JSON.stringify(true));
+          // dispatch({
+          //   type: LOGIN_ACTION,
+          //   payload: {
+          //     isAuth: true,
+          //     data: response.data.data,
+          //     isSuper: response.data.data.role,
+          //   },
+          // });
+
           window.location.href = HOME_PAGE;
         } else
           Swal.fire({
@@ -96,7 +97,7 @@ export const logoutAction = () => {
 export const getMe = () => {
   return (dispatch) => {
     axios
-      .get(`${keys.api}/auth/me`, {
+      .get(`${keys.api}/users/me`, {
         headers: {
           Authorization: `Bearer ${keys.token}`,
         },

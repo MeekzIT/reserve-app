@@ -30,17 +30,13 @@ function App() {
       dispatch(logoutAction());
       console.log("1 hour has passed!");
     }, 3600000);
-
+  
     return () => {
       clearTimeout(timeoutId);
     };
   }, []);
 
-  return (
-    <div>
-      <MainLayout />
-    </div>
-  );
+  return <MainLayout />;
 }
 
 export default App;

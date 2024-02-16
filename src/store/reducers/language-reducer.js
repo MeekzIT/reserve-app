@@ -1,4 +1,4 @@
-import { CHANGE_CURRENCY, CHANGE_LANGUAGE, GET_COUNTRIES } from "../types";
+import { CHANGE_LANGUAGE, GET_COUNTRIES } from "../types";
 
 const initialState = {
   lang: localStorage.getItem("language"),

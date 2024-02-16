@@ -1,0 +1,11 @@
+name: lint
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install modules
+      run: npm i --force
+    - name: Run ESLint
+      run: npm run lint

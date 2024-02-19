@@ -20,8 +20,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 import fs from "fs/promises";
+import dns from 'dns'
 
-// https://vitejs.dev/config/
+dns.setDefaultResultOrder('verbatim')
+
 export default defineConfig({
   resolve: {
     alias: {

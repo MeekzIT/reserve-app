@@ -28,6 +28,9 @@ export default defineConfig({
       src: resolve(__dirname, "src"),
     },
   },
+  server: {
+    open: true,
+  },
   esbuild: {
     loader: "jsx",
     include: /src\/.*\.jsx?$/,

@@ -30,6 +30,7 @@ export default defineConfig({
   },
   server: {
     port: 3001,
+    host: '127.0.0.1'
     // host: "154.49.137.44",
   },
   esbuild: {

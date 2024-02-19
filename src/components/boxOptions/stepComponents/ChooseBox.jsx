@@ -97,7 +97,7 @@ const ChooseBox = ({
               label={null}
               onChange={handleChange}
             >
-              {/* <MenuItem value={"now"}>Now</MenuItem> */}
+              <MenuItem value={"now"}>Now</MenuItem>
               {hours?.map((time) => {
                 return (
                   <MenuItem value={time.start} disabled={!time.access}>

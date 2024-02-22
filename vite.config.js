@@ -20,9 +20,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 import fs from "fs/promises";
-import dns from 'dns'
+import dns from "dns";
 
-dns.setDefaultResultOrder('verbatim')
+dns.setDefaultResultOrder("verbatim");
 
 export default defineConfig({
   resolve: {
@@ -32,10 +32,17 @@ export default defineConfig({
   },
   server: {
     port: 3001,
-    host: '127.0.0.1',
+    host: "127.0.0.1",
+    http: true,
     hmr: {
-      clientPort: 3001
-  }
+      clientPort: 3001,
+    },
+    proxy: {
+      '/api': {
+        target: 'http://154.49.137.44:5000',
+        changeOrigin: true,
+      },
+    },
     // host: "154.49.137.44",
   },
   esbuild: {

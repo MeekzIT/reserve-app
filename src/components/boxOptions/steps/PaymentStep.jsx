@@ -21,7 +21,6 @@ const PaymentStep = ({
   const dispatch = useDispatch();
   const socket = useRef(io("ws://localhost:8000"));
   const currentBox = useSelector((state) => state.box.box);
-  const orderSucces = useSelector((state) => state.box.orderSucces);
 
   // useEffect(() => {
   //   socket.current = ;
@@ -47,13 +46,6 @@ const PaymentStep = ({
       boxId: currentBox.id,
     });
     setOpen(false);
-    Swal.fire({
-      position: "center",
-      iconColor: "#008491",
-      icon: "success",
-      showConfirmButton: false,
-      timer: 1500,
-    });
   };
 
   return (

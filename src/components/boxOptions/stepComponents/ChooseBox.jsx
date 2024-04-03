@@ -83,7 +83,7 @@ const ChooseBox = ({
   if (timeValue !== "now") {
     disablePrice = true;
   }
-
+  console.log(hours,"asdouiygavs");
   return (
     <div>
       {workers?.length > 0 && (

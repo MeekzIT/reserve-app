@@ -22,6 +22,7 @@ export default defineConfig({
 		host: true,
 		hmr: {
 			clientPort: 4173,
+			host: "reserve.jsxmachines.com",
 		},
 		// https:true,
 		proxy: {

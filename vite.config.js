@@ -18,13 +18,12 @@ export default defineConfig({
 		emptyOutDir: true,
 	},
 	server: {
+		port: 4173,
 		host: true,
 		hmr: {
-			host: "reserve.jsxmachines.com/",
-			// port: 443,
-			// protocol: 'wss',
+			clientPort: 4173,
 		},
-		https: true,
+		// https:true,
 		proxy: {
 			"/api": {
 				target: "http://154.49.137.44:5000",

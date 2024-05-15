@@ -5,8 +5,8 @@
   "scope": "/",
   "start_url": ".",
   "name": "JSX RESERVE",
-  "short_name": "JSX",
-  "description": "JSX Reserve",
+  "short_name": "Reserve",
+  "description": "Reserve",
   "icons": [
     {
       "src": "/icon-192x192.png",
